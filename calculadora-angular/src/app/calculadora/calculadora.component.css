@@ -24,15 +24,27 @@ body {
     width: 260px;
 }
 
-#history {
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-bottom: 25px;
+    font-size: 35px;
+    border-radius: 5px;
+}
+
+#result{
+    font-size: 25px;
+}
+
+#history, #result {
     padding-right: 15px;
-    height: 80px;
     width: 260px;
-    text-align: right;
-    margin: 5px;
-    font-size: 40px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    text-align: right;  /* Agregado para alinear a la derecha */
+    height: 40px;
+    margin: 0;
+    border: none;
+    overflow: hidden;  /* Agregado para evitar desbordamiento */
 }
 
 .background{

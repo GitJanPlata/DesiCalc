@@ -32,7 +32,6 @@ export class CalculadoraComponent {
 
   calculate() {
     this.operands.push(Number(this.display));
-    this.history += '='; // Agrega el signo de igual al historial antes de calcular el resultado
 
     while (this.operators.length > 0) {
       let leftOperand = this.operands.shift();
@@ -59,7 +58,6 @@ export class CalculadoraComponent {
 
     if (this.operands[0] !== undefined) {
       this.display = String(this.operands[0]);
-      this.history += this.display; // Agrega el resultado al historial
     } else {
       this.display = 'Error';
     }
