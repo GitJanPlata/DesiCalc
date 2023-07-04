@@ -1,7 +1,9 @@
 <body>
     <div class="background">
         <div class="container">
-            <input id="result" [(ngModel)]="display" type="text" readonly />
+            <div class="input-group">  <!-- Contenedor para los campos de entrada -->
+                <input id="history" [(ngModel)]="history" type="text" readonly />
+            </div>
             <div>
                 <button class="button" (click)="addNumber(1)">1</button>
                 <button class="button" (click)="addNumber(2)">2</button>

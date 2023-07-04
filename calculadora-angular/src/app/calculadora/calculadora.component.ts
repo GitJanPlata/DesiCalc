@@ -7,56 +7,70 @@ import { Component } from '@angular/core';
 })
 export class CalculadoraComponent {
   display: string = '';
-  leftOperand: number | null = null;
-  operator: string | null = null;
+  history: string = ''; // Nueva cadena para almacenar la historia de entrada
+  operators: string[] = [];
+  operands: number[] = [];
 
   addNumber(number: number) {
     this.display += number;
+    this.history += number; // Agrega el número a la historia
   }
 
   addDecimal() {
     if (!this.display.includes('.')) {
       this.display += '.';
+      this.history += '.'; // Agrega el punto decimal a la historia
     }
   }
 
   setOperation(operator: string) {
-    if (this.operator && this.leftOperand !== null) {
-      this.calculate();
-    }
-  
-    this.leftOperand = Number(this.display);
-    this.operator = operator;
-    this.display += operator;
+    this.operators.push(operator);
+    this.operands.push(Number(this.display));
+    this.history += operator; // Agrega el operador a la historia
+    this.display = '';
   }
 
   calculate() {
-    if (this.operator && this.leftOperand !== null) {
-      let rightOperand = Number(this.display.slice(this.display.indexOf(this.operator) + 1));
-      
-      switch(this.operator) {
-        case '+':
-          this.display = String(this.leftOperand + rightOperand);
-          break;
-        case '-':
-          this.display = String(this.leftOperand - rightOperand);
-          break;
-        case '*':
-          this.display = String(this.leftOperand * rightOperand);
-          break;
-        case '/':
-          this.display = String(this.leftOperand / rightOperand);
-          break;
+    this.operands.push(Number(this.display));
+    this.history += '='; // Agrega el signo de igual al historial antes de calcular el resultado
+
+    while (this.operators.length > 0) {
+      let leftOperand = this.operands.shift();
+      let operator = this.operators.shift();
+      let rightOperand = this.operands[0];
+
+      if (leftOperand !== undefined && rightOperand !== undefined) {
+        switch(operator) {
+          case '+':
+            this.operands[0] = leftOperand + rightOperand;
+            break;
+          case '-':
+            this.operands[0] = leftOperand - rightOperand;
+            break;
+          case '*':
+            this.operands[0] = leftOperand * rightOperand;
+            break;
+          case '/':
+            this.operands[0] = leftOperand / rightOperand;
+            break;
+        }
       }
     }
-  
-    this.operator = null;
-    this.leftOperand = null;
+
+    if (this.operands[0] !== undefined) {
+      this.display = String(this.operands[0]);
+      this.history += this.display; // Agrega el resultado al historial
+    } else {
+      this.display = 'Error';
+    }
+
+    this.operands = [];
   }
 
   clear() {
     this.display = '';
-    this.leftOperand = null;
-    this.operator = null;
+    this.history = ''; // Borra el historial
+    this.operands = [];
+    this.operators = [];
   }
 }
