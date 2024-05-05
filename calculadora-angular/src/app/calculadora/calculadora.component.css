@@ -62,6 +62,7 @@ body {
 
 .background{
     border-radius: 10px;
+    border-width: 5px;
     padding: 15px;
     background-color: rgb(243, 89, 166);
     border-style: groove;

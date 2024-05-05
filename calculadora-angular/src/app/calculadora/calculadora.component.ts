@@ -92,12 +92,16 @@ export class CalculadoraComponent {
     }
   
     if (this.operands[0] !== undefined) {
-      this.display = String(this.operands[0]);
+      this.display = this.roundToTwoDecimals(this.operands[0]);
     } else {
       this.display = 'Error';
     }
   
     this.operands = [];
+  }
+
+  roundToTwoDecimals(number: number): string {
+    return Number(number.toFixed(2)).toString(); // Redondea a 2 decimales y convierte a cadena
   }
 
   clear() {
