@@ -4,12 +4,16 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0e1e1;
+    background-color: #e48dec;
     font-family: Arial, sans-serif;
+    background-image: url('../../assets/kittyBG2.png');
+    background-size: repeat; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+    background-position: center;
 }
 
 .container {
     text-align: center;
+    
 }
 
 .button {
@@ -17,7 +21,9 @@ body {
     width: 65px;
     font-size: 30px;
     cursor: pointer;
-    background-color: rgb(199, 199, 199);   
+    border-radius: 20px;
+    background-color: rgb(240, 143, 235);
+    margin: 1px;   
 }
 
 #clear {
@@ -57,5 +63,6 @@ body {
 .background{
     border-radius: 10px;
     padding: 15px;
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(243, 89, 166);
+    border-style: groove;
 }

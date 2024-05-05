@@ -1,0 +1,11 @@
+.reloj {
+  font-size: 20px;
+  color: #68046b;
+  text-align: center;
+  margin-left: 60%;
+  margin-right: 7%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: rgb(238, 187, 253);
+  font-weight: bold;
+}
