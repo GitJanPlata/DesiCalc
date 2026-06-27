@@ -21,6 +21,6 @@ export class RelojComponent implements OnInit {
 
   private actualizarHora() {
     const ahora = new Date();
-    this.hora = ahora.toLocaleTimeString('es-ES', { hour12: false });
+    this.hora = ' ' + ahora.toLocaleTimeString('es-ES', { hour12: false }) + ' ';
   }
 }
