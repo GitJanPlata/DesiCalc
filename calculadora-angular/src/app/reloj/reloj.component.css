@@ -4,9 +4,13 @@
   text-align: center;
   margin-left: 60%;
   margin-right: 7%;
-  border-radius: 4px;
+  min-width: 160px;
+  padding: 8px 12px;
+  border-radius: 10px;
   border: 1px solid gray;
   background-color: rgb(238, 187, 253);
   font-weight: bold;
   letter-spacing: 1px;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
